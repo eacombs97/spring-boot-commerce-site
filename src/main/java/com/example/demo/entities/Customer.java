@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="customers")
@@ -17,8 +19,9 @@ import java.util.Date;
  * @author Emily Combs
  */
 public class Customer {
-
-    //Add JPA Mappings to private fields
+    //=======================================
+    //Fields with JPA Mappings
+    //=======================================
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
@@ -50,5 +53,12 @@ public class Customer {
     @Column(name = "division_id")
     private Division division; //Division from created class
 
-    //carts from set cart goes here
+    //=============================================
+    //Relationships
+    //=============================================
+    /*
+     * Customer to Carts One-to-Many Relationship
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+    private Set<Cart> carts = new HashSet<>();
 }

@@ -7,6 +7,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -19,7 +21,9 @@ import java.util.Date;
  * @author Emily Combs
  */
 public class Country {
+    //=======================================
     //Fields with JPA Mappings
+    //=======================================
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
@@ -36,8 +40,14 @@ public class Country {
     @UpdateTimestamp
     private Date last_update;
 
-    //divisions dield from set division method
-
+    //=============================================
+    //Relationships
+    //=============================================
+    /*
+     * Cart to CartItem One-to-Many Relationship
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
+    private Set<Division> divisions = new HashSet<>();
 
 
 

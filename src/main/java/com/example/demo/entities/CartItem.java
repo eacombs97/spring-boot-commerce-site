@@ -18,9 +18,9 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class CartItem {
-    //=========================================
-    //Add JPA Mappings to private fields
-    //=========================================
+    //=======================================
+    //Fields with JPA Mappings
+    //=======================================
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_item_id")
@@ -34,9 +34,9 @@ public class CartItem {
     @UpdateTimestamp
     private Date last_update;
 
-    //=========================================
-    // Relationships
-    //=========================================
+    //=============================================
+    //Relationships
+    //=============================================
     @ManyToOne
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;

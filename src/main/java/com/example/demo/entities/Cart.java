@@ -5,9 +5,10 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="carts")
@@ -18,7 +19,9 @@ import java.util.Date;
  * @author Emily Combs
  */
 public class Cart {
-    //Add JPA Mappings to private fields
+    //=======================================
+    //Fields with JPA Mappings
+    //=======================================
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
@@ -44,7 +47,12 @@ public class Cart {
     @UpdateTimestamp
     private Date last_update;
 
-    //customer from customer class
-
-    private Set<CartItem> cartItem;
+    //=============================================
+    //Relationships
+    //=============================================
+    /*
+     * Cart to CartItem One-to-Many Relationship
+     */
+    @OneToMany (cascade = CascadeType.ALL, mappedBy = "cart")
+    private Set<CartItem> cartItem = new HashSet<>();
 }

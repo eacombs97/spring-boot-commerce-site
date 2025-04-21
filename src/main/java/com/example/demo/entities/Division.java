@@ -42,14 +42,14 @@ public class Division {
     //Relationships
     //=============================================
     /*
-     * Country Many-to-One Relationship
+     * Countries to Division Many-to-One Relationship
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
     /*
-     * Customer One-To-Many Relationship
+     * Division to Customers One-To-Many Relationship
      */
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customers = new HashSet<>();

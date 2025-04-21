@@ -2,13 +2,14 @@ package com.example.demo.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-impot lombok.Setter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "vacations")
@@ -20,7 +21,9 @@ import java.util.Date;
  * @author Emily Combs
  */
 public class Vacation {
+    //==================================
     //Fields with JPA Mappings
+    //==================================
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vacation_id")
@@ -46,5 +49,18 @@ public class Vacation {
     @UpdateTimestamp
     private Date last_update;
 
-    //excursions from set excursion
+    //=====================================
+    //Relationships
+    //=====================================
+    /*
+     * Vacation to Cart Items One-To-Many Relationship
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<CartItem> cartitems = new HashSet<>();
+
+    /*
+     * Vacation to Excursions One-To-Many Relationship
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
+    private Set<Excursion> excursions = new HashSet<>();
 }

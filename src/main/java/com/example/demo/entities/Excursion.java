@@ -52,8 +52,11 @@ public class Excursion {
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
-    Set<CartItem> cartitems=new HashSet<>();
+    /*
+     * Excursion to Cart Items One-To-Many Relationship
+     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursion")
+    private Set<CartItem> cartItems = new HashSet<>();
 
     ////////////////////////////////////////////////////////////////
 
