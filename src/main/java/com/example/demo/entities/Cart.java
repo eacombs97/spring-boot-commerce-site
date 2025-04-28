@@ -19,9 +19,11 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Cart {
-    //=======================================
-    //Fields with JPA Mappings
-    //=======================================
+    /*
+    =======================================
+    Fields with JPA Mappings
+    =======================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_id")
@@ -36,23 +38,43 @@ public class Cart {
     @Column(name = "party_size")
     private int package_size;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private StatusType status; //Status type is created and imported
+    private StatusType status;
 
-    @Column(name = "create_date")
     @CreationTimestamp
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "last_update")
     @UpdateTimestamp
+    @Column(name = "last_update")
     private Date last_update;
 
-    //=============================================
-    //Relationships
-    //=============================================
     /*
-     * Cart to CartItem One-to-Many Relationship
-     */
+    =============================================
+    Relationships
+    =============================================
+    */
+    //Cart to CartItem One-to-Many Relationship
     @OneToMany (cascade = CascadeType.ALL, mappedBy = "cart")
     private Set<CartItem> cartItem = new HashSet<>();
+
+    //CustomerID to Cart Many-to-One Relationship
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    /*
+    =============================================
+    Methods
+    =============================================
+    */
+
+    /**
+     * add: method to add an CartItem object to the Cart object
+     * @param item
+     */
+    public void add(CartItem item){
+        this.cartItem.add(item);
+    }
 }

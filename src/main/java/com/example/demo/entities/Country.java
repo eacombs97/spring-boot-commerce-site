@@ -21,9 +21,11 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Country {
-    //=======================================
-    //Fields with JPA Mappings
-    //=======================================
+    /*
+    =======================================
+    Fields with JPA Mappings
+    =======================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "country_id")
@@ -40,15 +42,27 @@ public class Country {
     @UpdateTimestamp
     private Date last_update;
 
-    //=============================================
-    //Relationships
-    //=============================================
     /*
-     * Cart to CartItem One-to-Many Relationship
-     */
+    =============================================
+    Relationships
+    =============================================
+    */
+    //Cart to CartItem One-to-Many Relationship
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private Set<Division> divisions = new HashSet<>();
 
+    /*
+    =============================================
+    Methods
+    =============================================
+     */
 
-
+    /**
+     * Getter method for getting the id of a Country object
+     *
+     * @return Long id
+     */
+    public Long getId() {
+        return id;
+    }
 }

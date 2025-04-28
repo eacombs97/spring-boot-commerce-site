@@ -19,12 +19,14 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Customer {
-    //=======================================
-    //Fields with JPA Mappings
-    //=======================================
+    /*
+    =======================================
+    Fields with JPA Mappings
+    =======================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     private Long id;
 
     @Column(name = "customer_first_name")
@@ -50,15 +52,16 @@ public class Customer {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "division_id")
-    private Division division; //Division from created class
-
-    //=============================================
-    //Relationships
-    //=============================================
     /*
-     * Customer to Carts One-to-Many Relationship
-     */
+    =============================================
+    Relationships
+    =============================================
+    */
+    // Customer to Carts One-to-Many Relationship
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     private Set<Cart> carts = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
 }

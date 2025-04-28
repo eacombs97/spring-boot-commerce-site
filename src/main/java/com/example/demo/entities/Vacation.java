@@ -21,9 +21,11 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Vacation {
-    //==================================
-    //Fields with JPA Mappings
-    //==================================
+    /*
+    ==================================
+    Fields with JPA Mappings
+    ==================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "vacation_id")
@@ -49,18 +51,12 @@ public class Vacation {
     @UpdateTimestamp
     private Date last_update;
 
-    //=====================================
-    //Relationships
-    //=====================================
     /*
-     * Vacation to Cart Items One-To-Many Relationship
-     */
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
-    private Set<CartItem> cartitems = new HashSet<>();
-
-    /*
-     * Vacation to Excursions One-To-Many Relationship
-     */
+    =====================================
+    Relationships
+    =====================================
+    */
+    //Vacation to Excursions One-To-Many Relationship
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
     private Set<Excursion> excursions = new HashSet<>();
 }

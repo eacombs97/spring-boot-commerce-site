@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,12 +21,14 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Excursion {
-    //==================================
-    //Fields with JPA Mappings
-    //==================================
+    /*
+    ==================================
+    Fields with JPA Mappings
+    ==================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "excursion_id")
+    @Column(name = "excursion_id", nullable = false)
     private Long id;
 
     @Column(name = "excursion_title")
@@ -35,6 +38,7 @@ public class Excursion {
     private BigDecimal excursion_price;
 
     @Column(name = "image_url")
+    @JsonProperty("image_URL")
     private String image_URL;
 
     @Column(name = "create_date")
@@ -45,23 +49,18 @@ public class Excursion {
     @UpdateTimestamp
     private Date last_update;
 
-    //=====================================
-    //Relationships
-    //=====================================
+    /*
+    =====================================
+    Relationships
+    =====================================
+    */
     @ManyToOne
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    /*
-     * Excursion to Cart Items One-To-Many Relationship
-     */
+
+    //Excursion to Cart Items One-To-Many Relationship
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursion")
     private Set<CartItem> cartItems = new HashSet<>();
 
-    ////////////////////////////////////////////////////////////////
-
-    //======================================
-    //Public Methods
-    //======================================
-    public Excursion(){}
 }

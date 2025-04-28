@@ -18,33 +18,40 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class CartItem {
-    //=======================================
-    //Fields with JPA Mappings
-    //=======================================
+    /*
+    =======================================
+    Fields with JPA Mappings
+    =======================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cart_item_id")
     private Long id;
 
-    @Column(name = "create_date")
     @CreationTimestamp
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "last_update")
     @UpdateTimestamp
+    @Column(name = "last_update")
     private Date last_update;
 
-    //=============================================
-    //Relationships
-    //=============================================
+    /*
+    =============================================
+    Relationships
+    ==============================================
+     */
     @ManyToOne
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
     @ManyToMany
-    @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "cart_item_id"),
-            inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
-    Set<Excursion> excursions;
+    @JoinTable(
+            name = "excursion_cartitem",
+            joinColumns = @JoinColumn(name = "cart_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "cart_item_id")
+    )
+    private Set<Excursion> excursions;
 
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)

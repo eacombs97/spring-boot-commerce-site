@@ -19,12 +19,14 @@ import java.util.Set;
  * @author Emily Combs
  */
 public class Division {
-    //=======================================
-    //Fields with JPA Mappings
-    //=======================================
+    /*
+    =======================================
+    Fields with JPA Mappings
+    =======================================
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "division_id")
+    @Column(name = "division_id", nullable = false)
     private Long id;
 
     @Column(name = "division")
@@ -38,34 +40,34 @@ public class Division {
     @UpdateTimestamp
     private Date last_update;
 
-    //=============================================
-    //Relationships
-    //=============================================
+    @Column(name = "country_id", nullable = false)
+    private Long country_id;
     /*
-     * Countries to Division Many-to-One Relationship
-     */
+    =============================================
+    Relationships
+    =============================================
+    */
+    //Countries to Division Many-to-One Relationship
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
-    /*
-     * Division to Customers One-To-Many Relationship
-     */
+    //Division to Customers One-To-Many Relationship
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
     private Set<Customer> customers = new HashSet<>();
 
-    @Column(name = "country_id")
-    private long country_id;
-
-    //============================================
-    //Setter and Getters
-    //============================================
+    /*
+    ============================================
+    Setter and Getters
+    ============================================
+    */
     /** Setter method to retrieve a Country object
      *
      * @param country
      */
     public void setCountry(Country country){
-        setCountry_id((country.getId()));
+        this.country_id = country.getId();
         this.country = country;
     }
+
 }
