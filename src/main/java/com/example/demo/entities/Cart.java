@@ -36,7 +36,7 @@ public class Cart {
     private BigDecimal package_price;
 
     @Column(name = "party_size")
-    private int package_size;
+    private int party_size;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")

@@ -52,10 +52,6 @@ public class Division {
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
-    //Division to Customers One-To-Many Relationship
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
-    private Set<Customer> customers = new HashSet<>();
-
     /*
     ============================================
     Setter and Getters
