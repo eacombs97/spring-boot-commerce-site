@@ -40,8 +40,9 @@ public class Division {
     @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "country_id", nullable = false)
-    private Long country_id;
+    @Column(name = "country_id", insertable = false, updatable = false)
+    private Long countryID;
+
     /*
     =============================================
     Relationships
@@ -52,6 +53,8 @@ public class Division {
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
+    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Customer> customers = new HashSet<>();
     /*
     ============================================
     Setter and Getters
@@ -62,7 +65,6 @@ public class Division {
      * @param country
      */
     public void setCountry(Country country){
-        this.country_id = country.getId();
         this.country = country;
     }
 

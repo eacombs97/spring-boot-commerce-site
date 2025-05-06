@@ -10,14 +10,13 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/** Cart.java Class:
+ * @author Emily Combs
+ */
 @Entity
 @Table(name="carts")
 @Getter
 @Setter
-
-/** Cart.java Class:
- * @author Emily Combs
- */
 public class Cart {
     /*
     =======================================

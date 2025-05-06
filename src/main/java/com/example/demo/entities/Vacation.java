@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,15 +12,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**Vacation.java class:
+ *
+ * @author Emily Combs
+ */
 @Entity
 @Table(name = "vacations")
 @Getter
 @Setter
 
-/**Vacation.java class:
- *
- * @author Emily Combs
- */
 public class Vacation {
     /*
     ==================================
@@ -38,18 +39,20 @@ public class Vacation {
     private String description;
 
     @Column(name = "travel_fare_price")
+    @JsonProperty("travel_price")
     private BigDecimal travel_price;
 
     @Column(name = "image_url")
+    @JsonProperty("image_URL")
     private String image_URL;
 
-    @Column(name = "create_date")
     @CreationTimestamp
-    private Date create_date;
+    @Column(name = "create_date")
+    private Date createDate;
 
-    @Column(name = "last_update")
     @UpdateTimestamp
-    private Date last_update;
+    @Column(name = "last_update")
+    private Date lastUpdate;
 
     /*
     =====================================

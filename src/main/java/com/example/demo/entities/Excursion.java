@@ -12,14 +12,14 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/**Excursion.java Class:
+ * @author Emily Combs
+ **/
 @Entity
 @Table(name = "excursions")
 @Getter
 @Setter
 
-/**Excursion.java Class:
- * @author Emily Combs
- */
 public class Excursion {
     /*
     ==================================
@@ -32,6 +32,7 @@ public class Excursion {
     private Long id;
 
     @Column(name = "excursion_title")
+    @JsonProperty("excursion_title")
     private String excursion_title;
 
     @Column(name = "excursion_price")
@@ -60,7 +61,7 @@ public class Excursion {
 
 
     //Excursion to Cart Items One-To-Many Relationship
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "excursion")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
     private Set<CartItem> cartItems = new HashSet<>();
 
 }

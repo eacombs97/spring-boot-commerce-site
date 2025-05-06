@@ -9,14 +9,14 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 import java.util.Set;
 
+/** CartItem.java Class:
+ * @author Emily Combs
+ */
 @Entity
 @Table(name="excursion_cartitem")
 @Getter
 @Setter
 
-/** CartItem.java Class:
- * @author Emily Combs
- */
 public class CartItem {
     /*
     =======================================

@@ -10,16 +10,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-
-@Entity
-@Table(name = "countries")
-@Setter
-@Getter
 /**Country.java Class:
  *
  *
  * @author Emily Combs
  */
+@Entity
+@Table(name = "countries")
+@Setter
+@Getter
+
 public class Country {
     /*
     =======================================
@@ -51,18 +51,4 @@ public class Country {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
     private Set<Division> divisions = new HashSet<>();
 
-    /*
-    =============================================
-    Methods
-    =============================================
-     */
-
-    /**
-     * Getter method for getting the id of a Country object
-     *
-     * @return Long id
-     */
-    public Long getId() {
-        return id;
-    }
 }

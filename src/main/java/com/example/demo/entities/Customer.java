@@ -44,12 +44,12 @@ public class Customer {
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "create_date")
     @CreationTimestamp
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "last_update")
     @UpdateTimestamp
+    @Column(name = "last_update")
     private Date last_update;
 
     /*
