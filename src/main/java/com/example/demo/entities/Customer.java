@@ -10,14 +10,14 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+/** Customer.java Class:
+ * @author Emily Combs
+ */
 @Entity
 @Table(name="customers")
 @Getter
 @Setter
 
-/** Customer.java Class:
- * @author Emily Combs
- */
 public class Customer {
     /*
     =======================================

@@ -69,11 +69,11 @@ public class Cart {
     =============================================
     */
 
-    /**
-     * add: method to add an CartItem object to the Cart object
-     * @param item
+    /*
+      add: method to add an CartItem object to the Cart object
+      @param item (CartItem)
      */
-    public void add(CartItem item){
+    /*public void add(CartItem item){
         this.cartItem.add(item);
-    }
+    }*/
 }

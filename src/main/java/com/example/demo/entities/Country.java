@@ -11,8 +11,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**Country.java Class:
- *
- *
  * @author Emily Combs
  */
 @Entity

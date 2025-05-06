@@ -10,14 +10,15 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**Division.java Class:
+ * @author Emily Combs
+ */
 @Entity
 @Table(name = "divisions")
 @Getter
 @Setter
 
-/**Division.java Class:
- * @author Emily Combs
- */
 public class Division {
     /*
     =======================================
@@ -60,12 +61,12 @@ public class Division {
     Setter and Getters
     ============================================
     */
-    /** Setter method to retrieve a Country object
-     *
-     * @param country
+    /* Setter method to retrieve a Country object
+
+      @param country
      */
-    public void setCountry(Country country){
+    /*public void setCountry(Country country){
         this.country = country;
-    }
+    }*/
 
 }
