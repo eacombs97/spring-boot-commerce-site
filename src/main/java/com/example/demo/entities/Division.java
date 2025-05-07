@@ -61,12 +61,12 @@ public class Division {
     Setter and Getters
     ============================================
     */
-    /* Setter method to retrieve a Country object
+    /** Setter method to retrieve a Country object
 
       @param country
      */
-    /*public void setCountry(Country country){
+    public void setCountry(Country country){
         this.country = country;
-    }*/
+    }
 
 }
