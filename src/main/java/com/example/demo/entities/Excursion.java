@@ -31,14 +31,14 @@ public class Excursion {
     @Column(name = "excursion_id", nullable = false)
     private Long id;
 
-    @Column(name = "excursion_title")
+    @Column(name = "excursion_title", nullable = false)
     @JsonProperty("excursion_title")
     private String excursion_title;
 
-    @Column(name = "excursion_price")
+    @Column(name = "excursion_price", nullable = false)
     private BigDecimal excursion_price;
 
-    @Column(name = "image_url")
+    @Column(name = "image_url", nullable = false)
     @JsonProperty("image_URL")
     private String image_URL;
 

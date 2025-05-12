@@ -25,7 +25,7 @@ public class CartItem {
     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cart_item_id")
+    @Column(name = "cart_item_id", nullable = false)
     private Long id;
 
     @CreationTimestamp
