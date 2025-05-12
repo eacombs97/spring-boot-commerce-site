@@ -76,7 +76,14 @@ public class Customer {
      * @param cart (Cart)
      */
     public void add(Cart cart) {
-        this.carts.add(cart);
+
+        if (cart != null) {
+            if (carts == null) {
+                carts = new HashSet<>();
+            }
+            carts.add(cart);
+            cart.setCustomer(this);
+        }
     }
 
 }

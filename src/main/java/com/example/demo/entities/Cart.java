@@ -78,7 +78,14 @@ public class Cart {
       @param item (CartItem)
      */
     public void add(CartItem item){
-        this.cartItem.add(item);
+        if (item != null){
+            if (cartItem == null) {
+                cartItem = new HashSet<>();
+            }
+
+            cartItem.add(item);
+            item.setCart(this);
+        }
     }
 
     /*
