@@ -1,7 +1,9 @@
 package com.example.demo.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,6 +17,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name="carts")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Cart {
@@ -28,7 +32,7 @@ public class Cart {
     @Column(name = "cart_id")
     private Long id;
 
-    @Column(name = "order_tracking_number")
+    @Column(name = "order_tracking_number", nullable = false)
     private String orderTrackingNumber;
 
     @Column(name = "package_price")
@@ -38,7 +42,7 @@ public class Cart {
     private int party_size;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private StatusType status;
 
     @CreationTimestamp
@@ -69,11 +73,27 @@ public class Cart {
     =============================================
     */
 
-    /*
+    /**
       add: method to add an CartItem object to the Cart object
       @param item (CartItem)
      */
-    /*public void add(CartItem item){
+    public void add(CartItem item){
         this.cartItem.add(item);
-    }*/
+    }
+
+    /*
+    =============================================
+    Getters and setters
+    =============================================
+    */
+    public void setOrderTrackingNumber(String orderTrackingNumber) {
+        this.orderTrackingNumber = orderTrackingNumber;
+    }
+
+    public void setStatus(StatusType status) {
+        this.status = status;
+    }
+
+
+
 }
