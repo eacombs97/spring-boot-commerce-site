@@ -13,7 +13,7 @@ import java.util.Set;
  * @author Emily Combs
  */
 @Entity
-@Table(name="excursion_cartitem")
+@Table(name="cart_items")
 @Getter
 @Setter
 

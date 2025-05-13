@@ -88,18 +88,6 @@ public class Cart {
         }
     }
 
-    /*
-    =============================================
-    Getters and setters
-    =============================================
-    */
-    public void setOrderTrackingNumber(String orderTrackingNumber) {
-        this.orderTrackingNumber = orderTrackingNumber;
-    }
-
-    public void setStatus(StatusType status) {
-        this.status = status;
-    }
 
 
 
