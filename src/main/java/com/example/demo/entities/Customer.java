@@ -65,25 +65,6 @@ public class Customer {
     @JoinColumn(name = "division_id", nullable = false)
     private Division division;
 
-    /*
-    =============================================
-    Relationships
-    =============================================
-    */
-
-    /** add()
-     *
-     * @param cart (Cart)
-     */
-    public void add(Cart cart) {
-
-        if (cart != null) {
-            if (carts == null) {
-                carts = new HashSet<>();
-            }
-            carts.add(cart);
-            cart.setCustomer(this);
-        }
-    }
+    
 
 }

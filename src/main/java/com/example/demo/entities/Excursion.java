@@ -31,14 +31,14 @@ public class Excursion {
     @Column(name = "excursion_id", nullable = false)
     private Long id;
 
-    @Column(name = "excursion_title", nullable = false)
+    @Column(name = "excursion_title")
     @JsonProperty("excursion_title")
     private String excursion_title;
 
-    @Column(name = "excursion_price", nullable = false)
+    @Column(name = "excursion_price")
     private BigDecimal excursion_price;
 
-    @Column(name = "image_url", nullable = false)
+    @Column(name = "image_url")
     @JsonProperty("image_URL")
     private String image_URL;
 
@@ -61,7 +61,7 @@ public class Excursion {
 
 
     //Excursion to Cart Items One-To-Many Relationship
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
-    private Set<CartItem> cartItems = new HashSet<>();
+    @ManyToMany(mappedBy = "excursions")
+    private Set<CartItem> cartitems = new HashSet<>();
 
 }

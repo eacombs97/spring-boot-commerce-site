@@ -32,17 +32,17 @@ public class Vacation {
     @Column(name = "vacation_id", nullable = false)
     private Long id;
 
-    @Column(name = "vacation_title", nullable = false)
+    @Column(name = "vacation_title")
     private String vacation_title;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "travel_fare_price", nullable = false)
+    @Column(name = "travel_fare_price")
     @JsonProperty("travel_price")
     private BigDecimal travel_price;
 
-    @Column(name = "image_url", nullable = false)
+    @Column(name = "image_url")
     @JsonProperty("image_URL")
     private String image_URL;
 
