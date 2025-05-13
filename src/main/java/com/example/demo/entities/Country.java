@@ -29,7 +29,7 @@ public class Country {
     @Column(name = "country_id", nullable = false)
     private Long id;
 
-    @Column(name = "country",nullable = false)
+    @Column(name = "country")
     private String country_name;
 
     @Column(name = "create_date")
